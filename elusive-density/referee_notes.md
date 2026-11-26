@@ -1,0 +1,46 @@
+# Referee notes (adversarial) on attempt 1 (2611.21894__2ddf2) and attempt 2 (__32d00)
+
+Verdict: NO ERROR FOUND in attempt 1 after a line-by-line check. No real gap. Two cited inputs (Saias's exact constant-free
+statement, Guralnick's full list) were checked from memory/secondary sources, not the primary text; flagged below.
+
+## 1. The Claim (group theory), step by step
+
+All steps correct unless noted.
+- N-orbits equal size c>1; K <= prod Sym(c): correct (K acts faithfully, fixes each orbit).
+- Lifting fact: correct (preimage H of <x> has order r|K|, Cauchy gives order-r element; it cannot lie in K since r does not divide |K|, so its image is a nonidentity power of x, a derangement on orbits).
+- gcd(c,b)=1 => c | a, primes of b > a >= c so coprime to |K|; need gcd(m/c,b)>1: holds since a prime of b dividing m does not divide c. m/c<m, m/c | n. Correct.
+- Abelian: c a power of the prime p (p | c) and p appears once in n so c=p. N<=K, K^Delta normalises N^Delta=C_p, so K^Delta <= AGL(1,p), |K| | (p(p-1))^(m/p). Correct. Recursive case: r | gcd(m/p,b), r != p because p does not divide m/p; r does not divide p-1 by condition 2 (used in the direction r | s-1 with s=p, which is covered since condition 2 is for all ordered pairs). Correct. Covering case: m/p <= a < p kernels of index p, union misses an element (|union| <= k(|N|/p -1)+1 < |N|). Element has order p (N elementary abelian), acts nontrivially on every orbit. Correct. Recursion only invoked with gcd>1 and strictly smaller degree: well-founded.
+- Nonabelian, proper projection: d=[T:M] divides c because U <= M x T^{k-1}. p | |T|, every proper subgroup has index >= p (T embeds in S_e, e<p, order coprime to p). d>=p>y>=7, d | n, d>a so some prime s | b divides d (s odd, s | d | c | m so s | gcd(m,b)). Primitive faithful action on T/M, d in D unless image = Alt(d) naturally. (t,...,t): conjugation by g induces phi in Aut(T) wr Sym(k); pi_{sigma(i)}(phi(U)) = phi(pi_i(U)) <= phi(M), and Aut(Alt(d))=Sym(d) (d>=7) so phi(M) is a point stabiliser, which excludes t (fixed-point-free on d points). Stabilisers of all m points are the G-conjugates of U. So (t,...,t) is a derangement on all m points. Correct. Needs no coprimality and no induction.
+- Nonabelian, all projections onto: |U| a power of |T| (kernel of U -> U' is U cap T_k, normalised by pi_k(U)=T, so 1 or T). Correct. U<N gives |T| | c | n. Maximal subgroup index d of T: d | |T| | n, d>=p>y so T=Alt(d) natural. 2-subset degree e=C(d,2) divides d!/2 (quotient (d-2)!), e>d>y, e | n, A_d on 2-subsets primitive (d>=5), faithful, not Alt(e). So e in D, contradiction with condition 3. Correct.
+- Doubts raised and resolved: (i) is the derangement order dividing gcd(m,b) in every branch? yes (s | d | c | m; p | c | m; recursion gives r | m/c). (ii) does K<=prod Sym(c) hold for K not equal to N? yes. (iii) does condition 3 get applied only to d>y? yes d>=p>y. (iv) y>=7 and primes of b > y so b's primes >= 11; 7 is excluded.
+- Sanity on known elusive degrees: 12 (a prime of b must exceed y>=7 and divide 12: none), 56=7*8 (7 is not > y>=7; also 7 < 8), p(p+1), p Mersenne (b=p forces a=p+1>p, fails condition 1; other splits impossible since p+1 is a power of 2), 12^k (primes 2,3), 225, 2*225, p^(3k-4)(p+1)/2 (Chen-O'Brien): primes of the odd/Mersenne part are <= or comparable to the cofactor, never satisfy "every prime of b larger than a". None satisfies the hypotheses. Consistent with Marusic: for b=p prime, a<p the Claim reproduces the theorem (every transitive group of degree mp, m<=p, has a semiregular element of order p; confirmed as an observation in Marusic-Scapellato, arXiv 1509.05221 / 1901.00084 citations; I did not see the primary Marusic 1985 text).
+
+## 2. Cited theorems
+
+- Cameron-Neumann-Teague 1982 (Math Z 180, 141-149/150): number of degrees <= x of primitive groups other than A_n,S_n = 2pi(x)+(1+sqrt2)sqrt(x)+O(sqrt x/log x) ~ 2x/log x. Confirmed via a citing Oxford paper (ORA record), not the primary text. Used correctly: primes (C_p) and q+1 (PSL_2(q)) already give ~2x/log x, so the rest E has o(x/log x). Note D is a subset of this degree set (a simple primitive group not equal to natural Alt(d) cannot contain A_d). Attempt 2 uses it identically.
+- Guralnick 1983 (J. Algebra 81): confirmed by citing papers that A_n (index n), M_23 (index 23), M_11 (index 11), PSU_4(2) (index 27) appear; PSL_n(q) points/hyperplanes and PSL_2(11) index 11 not seen in snippets but match my recollection. Use is correct: prime degrees in D are (q^j-1)/(q-1) apart from finitely many; j=2 forces q even (Fermat primes, O(log u)); j>=3 gives q<=sqrt u, j<=1+log2 u: O(sqrt u log u). All primes in D are covered even if one worried about the exact list, via Jones 2002 (attempt 2) giving the same list.
+- Saias 1997 (J. Number Theory 62, 163-191, "Entiers a diviseurs denses I"): the uniform estimate #{n<=x : consecutive divisors ratio <= y} << x log y / log x for 2<=y<=x. I could not confirm the exact statement through search (only bibliographic data). I recall it as D(x,y) asymp x log y/log x uniformly; this is the standard citation. Attempt 1 uses only the upper bound and proves the needed direction of Tenenbaum's criterion itself (interval-covering argument: divisors d of prefix product a give [d,yd] covering [1,ya]; multiplying by p<=ya keeps coverage). That argument is correct. The contrapositive (non-dense n has a first prime p_{j+1}>y p_1...p_j) is exactly what is used. Only the upper bound O(theta x) is needed.
+
+## 3. Analytic part
+
+- Reduction to shifted primes: correct; reciprocal sums of E vanish, but shifted primes have reciprocal sum ~ log(1/theta) so need the second-moment argument.
+- Second moment: omega_w(k) mean L var <= L; omega_w(q+1) over primes has mean sum 1/(l-1)=L+O(1), independent coordinates by CRT/PNT in progressions mod prod l, var <= mean. Omega_w additive so Omega_w(n)=Omega_w(q+1)+Omega_w(k) >= 1.6L. Markov on Omega_w-omega_w. Case split into three events, each O(1/L) or o(x). The order of limits (x->infinity with theta,w fixed; then w->infinity) is legitimate: M(w) depends only on w; PNT in AP for fixed modulus; all constants O_theta enter only via log(1/theta) and vanish with 1/L. No hidden uniformity problem.
+- Pair bound (2): number of n divisible by pq is <= x/(pq), q=hp+1<=x/p, sum gives x log x * sum_{p>y} p^-2 << x log x / y: o(x) at y=x^theta. Prime-square bound same. Correct.
+- Split n=ab: from non-density, smallest j with p_{j+1}>y a_j; b's primes >= p_{j+1} > ya >= max(a,y). b>1. Correct.
+- Final: upper density <= C theta (Saias term) + o(1); theta->0. Correct.
+
+## 4. Attempt 2
+
+Same overall idea (find ab with all primes of b large, isolated, with no r | s-1; rely on CNT + prime-degree classification + a shifted-prime second-moment argument) but different execution:
+- Group theory: minimal blocks (primitive local action) instead of minimal normal subgroup; uses the stronger divisor condition "every primitive group of degree d | n (d divisible by R-prime) contains A_d or is in AGL_1(d)" via CNT + Jones's cyclic-regular-subgroup classification (Jones 2002, J. Group Theory 5; list A_n,S_n; PGL_d(q)<=G<=PGammaL_d(q); PSL_2(11); M_11; M_23: matches). Checked each branch: lifting fact (g^v order s) correct; K' subdirect in A_d^m => product of diagonals, element of cycle type r^(d/r) in each diagonal gives derangement on every block, correct; affine local group with m<r handled by Sylow r-subgroup argument (orbits all of size r because D<r^2, m kernels cannot cover): correct. Both bullets "K=1" and "d has no R prime" correct.
+- Analytic: avoids Saias by a self-contained interval sieve (J=u^2 intervals (y_j,y_j^u], Bonferroni with K terms, delta chosen after u,K, bound E[a_y^t]=O(1) with t=1/log y). I checked the Bonferroni error accounting (x^{K delta u^J -1}) and the Mertens independent-model width (J log u+1)^K/K!; both fine; delta depends on u only, consistent. Shifted prime step via incidences with weight log(1/delta)/(phi(Q)Q): checked probability 1/l+(1-1/l)/(l-1)=2/l; Chebyshev constants (4 and 8)/M correct.
+- Neither attempt contradicts the other; attempt 2 independently confirms the Claim's mechanism and the shifted-prime step, and removes dependence on Saias. Attempt 1 needs only the weaker 'no divisor in D' (simple primitive groups) thanks to the minimal-normal-subgroup induction; attempt 2 needs all primitive degrees. Attempt 2's group part is not a gap-filler for attempt 1 but a second independent route.
+
+## 5. Prior work
+
+- No solution found. Chen-O'Brien, "Elusive groups from non-split extensions" (arXiv 2508.12652) lists it as Question 1.2 (open as of 2025); Harper's 2026 survey (2611.21894, Question 2.14) still asks it; Cameron's slides (webspace.maths.qmul.ac.uk/p.j.cameron/slides/bco.pdf) pose it. Also noted: Marusic-Scapellato observation for degrees mp, m<=p; Giudici 2003 (elusive with transitive minimal normal subgroup: M11, degree 12^k).
+- Caveat: web search is thin; absence of a published solution is not proof there is none.
+
+## Residual risks (not errors)
+1. Saias constant-free uniform statement and exact Guralnick list taken from memory/secondary sources: check primary text.
+2. No human expert has read it; the Claim is elementary enough that a CFSG-literate group theorist can check it in an hour.

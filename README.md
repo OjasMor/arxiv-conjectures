@@ -12,6 +12,7 @@ are listed separately below and credited in their folders.
 
 | Paper | Statement | Outcome | Found by | Evidence |
 |---|---|---|---|---|
+| Cameron, Giudici, Jones, Kantor, Klin, Marušič, Nowitz, J. London Math. Soc. 2002, Problem 6.2 (restated as Question 2.14 of [arXiv:2611.21894](https://arxiv.org/abs/2611.21894)) | Does the set of degrees of elusive permutation groups (transitive groups with no derangement of prime order) have density zero? | **Yes** (a written proof; needs expert review). Uses the Cameron–Neumann–Teague theorem, Guralnick's classification and Saias's theorem on dense divisors. | GPT-6.2 Astra, two independent attempts | Read line by line; adversarial AI review found no gap; second attempt by a different route agrees: [`elusive-density/`](elusive-density/) |
 | [arXiv:2611.21894](https://arxiv.org/abs/2611.21894) Scott Harper (16 Nov) | Question 2.19: does every transitive permutation group have a derangement of prime or prime-squared order? (Fein–Kantor–Schacher give one of prime power order.) | **No.** An explicit transitive group of degree 2,239,488 that has derangements (for example of order 8) but none of order 2, 3, 4 or 9, the only primes and prime squares possible. | GPT-6.2 Astra, one attempt | Every element with g⁴ = 1 or g⁹ = 1 tested by our own code (10 seconds): [`derangement-prime-square/`](derangement-prime-square/) |
 | [arXiv:2611.20820](https://arxiv.org/abs/2611.20820) Selvaraja (16 Nov) | Conjecture 5.9 (close-skew set-pair bound k ≤ 2^r). The paper notes it would imply Shukla's conjecture that the collapsibility number of the Vietoris–Rips complex of the hypercube at scale r is 2^r | **True, given the Gao–Zhao skew set-pair theorem** (a preprint the paper already relies on). A three-line reduction. | GPT-6.2 Astra, one attempt | The reduction is verified in Lean 4 ([`lean/CloseSkew.lean`](lean/CloseSkew.lean)); checked by hand; exhaustive check for n ≤ 4: [`close-skew-shukla/`](close-skew-shukla/) |
 | [arXiv:2611.30048](https://arxiv.org/abs/2611.30048) Shu Liu (23 Nov) | Conjecture 1: no q-ary [q+2,3] self-orthogonal MDS codes for even q ≥ 4 | **False.** An explicit [18,3,16] code over F_16. | Claude | Three independent programs and a Lean 4 proof: [`self-orthogonal-mds/`](self-orthogonal-mds/), [`lean/`](lean/) |
@@ -52,6 +53,8 @@ are listed separately below and credited in their folders.
   referee. The Kozlov proof uses a volume formula proved in the paper itself.
 - The interval-graph algorithm has a proof that was read line by line and agrees with brute force on every
   instance tried (up to 12 intervals).
+- The density theorem for elusive groups is the largest claim here and the one most in need of an expert: it is a
+  two-page proof combining group theory with analytic number theory, checked only by AI and by one careful read.
 - The close-skew bound is three lines on top of the Gao–Zhao theorem, which is a preprint; the step to Shukla's
   conjecture is the paper's own remark, which we did not re-derive.
 - The 6 × 5 configuration contradicts a computed claim in its source paper. Its rank is certified in exact
