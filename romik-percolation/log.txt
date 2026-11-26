@@ -1,0 +1,39 @@
+== Step 2: half-plane values vs paper table
+1 True 3/8
+2 True 59/1024
+3 True 7737/2097152
+4 True 6803145/68719476736
+5 True 40210542795/36028797018963968
+6 True 1599678636998003/302231454903657293676544
+7 True 428672479245743736177/40564819207303340847894502572032
+8 True 774167330660186496842976913/87112285931760246646623899502532662132736
+== check rational formula == definition for N>k
+def==rational for k<=5, N=k+1..k+4: True
+== Step 3: R_k(k) vs R_{k-1}(k) vs 1/A_k
+2 True 1/A_k ok 1/2 1/2
+3 True 1/A_k ok 1/7 1/7
+4 True 1/A_k ok 1/42 1/42
+5 True 1/A_k ok 1/429 1/429
+6 True 1/A_k ok 1/7436 1/7436
+7 True 1/A_k ok 1/218348 1/218348
+8 True 1/A_k ok 1/10850216 1/10850216
+== k up to 12 (R_rat at N=k)
+2 last white row nonzeros: [(3, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/2
+3 last white row nonzeros: [(5, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/7
+4 last white row nonzeros: [(7, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/42
+5 last white row nonzeros: [(9, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/429
+6 last white row nonzeros: [(11, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/7436
+7 last white row nonzeros: [(13, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/218348
+8 last white row nonzeros: [(15, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/10850216
+9 last white row nonzeros: [(17, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/911835460
+10 last white row nonzeros: [(19, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/129534272700
+11 last white row nonzeros: [(21, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/31095744852375
+12 last white row nonzeros: [(23, Fraction(1, 1))] | equal: True | =1/A_k: True | 1/12611311859677500
+== R_k(N) for N>k consistent with direct definition, sample k=6,7
+6 7 True
+6 8 True
+7 8 True
+7 9 True
+== H_def vs H_rat at N=k for c<=k (sanity) and vanishing for c1>k
+True
+True
