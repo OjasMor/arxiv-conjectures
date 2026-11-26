@@ -50,6 +50,8 @@ from the original definition (m ≤ 27) supports it but does not prove it.
 
 ## Prior work (checked 2026-11-25)
 
+**Earlier independent proof.** github.com/s66lem/conjectures published a Lean 4 verified proof of this conjecture (and of the paper's other conjecture) on 24 Nov 2026, about 17 hours before the proof here was found. We found that repository on 25 Nov after our own check; credit for the first proof goes there. What is here is an independent second proof.
+
 arXiv:2611.28727 is still v1. No arXiv paper cites or answers it. Nothing in
 github.com/1337isnot1337/solved-conjectures or in GitHub issues mentions it. The authors' own repository
 (github.com/researchbackup27-sudo/exact-littlestone-intervals) has a single commit from 21 Nov and no proof

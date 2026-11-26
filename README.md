@@ -8,7 +8,7 @@ or know that any of it is already in the literature, please open an issue.
 |---|---|---|---|---|
 | [arXiv:2611.14718](https://arxiv.org/abs/2611.14718) Higuita-Díaz, López, Roldán-Correa | On every graph of maximum degree ≤ 3, random sequential adsorption stochastically dominates the uniform jammed ensemble | **False.** A tree on 15 vertices. | GPT-6.2 Astra, one attempt | Exact rational computation and simulation: [`rsa-dominance/`](rsa-dominance/) |
 | [arXiv:2611.30048](https://arxiv.org/abs/2611.30048) Shu Liu | Conjecture 1: no q-ary [q+2,3] self-orthogonal MDS codes for even q ≥ 4 | **False.** An explicit [18,3,16] code over F_16. | Claude | Three independent programs and a Lean 4 proof: [`self-orthogonal-mds/`](self-orthogonal-mds/), [`lean/`](lean/) |
-| [arXiv:2611.28727](https://arxiv.org/abs/2611.28727) Daga, Ramu | Conjecture 31: the randomised Littlestone dimension of intervals equals the greedy closed form | **True** (written proof) | GPT-6.2 Astra, one attempt | Proof, AI referee report, exact numerical checks: [`littlestone-intervals/`](littlestone-intervals/) |
+| [arXiv:2611.28727](https://arxiv.org/abs/2611.28727) Daga, Ramu | Conjecture 31: the randomised Littlestone dimension of intervals equals the greedy closed form | **True** (written proof). Not first: [s66lem/conjectures](https://github.com/s66lem/conjectures) published a Lean-verified proof on 24 Nov, a day earlier. | GPT-6.2 Astra, one attempt | Proof, AI referee report, exact numerical checks: [`littlestone-intervals/`](littlestone-intervals/) |
 
 ## How sure is each one
 
