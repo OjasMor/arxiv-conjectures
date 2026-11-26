@@ -1,0 +1,82 @@
+### exact_forcing.py (exact rational arithmetic)
+============================================================
+overtaking witness
+  pass 1: forced [((14, 10), 'e_p in span(equalities)'), ((16, 21), 'e_p in span(equalities)'), ((7, 12), 'e_p in span(equalities)'), ((20, 23), 'e_p in span(equalities)')]
+  pass 2: forced [((26, 18), 'e_p in span(equalities)'), ((27, 9), 'e_p in span(equalities)')]
+  pass 3: forced [((6, 4), 'D_(6, 4) = -1 * D_(17, 3)  with both <= 0'), ((17, 3), 'D_(17, 3) = -1 * D_(6, 4)  with both <= 0')]
+  exact forcing: 8/8 displayed pairs forced
+  exact rank over Q of the 231 products w_i w_j: 231
+  => every feasible PSD Gram Q = W^T M W with M a PSD 21x21 Gram of the displayed forms, sum M_fg w_f w_g = sum w_f^2 + independence => M = I => Q = Q0, rank 21. SOS rank = 21 exactly.
+============================================================
+limited witness
+  pass 1: forced [((3, 17), 'e_p in span(equalities)'), ((4, 11), 'e_p in span(equalities)'), ((5, 20), 'e_p in span(equalities)'), ((9, 27), 'e_p in span(equalities)'), ((10, 15), 'e_p in span(equalities)'), ((23, 26), 'e_p in span(equalities)')]
+  exact forcing: 6/6 displayed pairs forced
+  exact rank over Q of the 210 products w_i w_j: 210
+  => every feasible PSD Gram Q = W^T M W with M a PSD 20x20 Gram of the displayed forms, sum M_fg w_f w_g = sum w_f^2 + independence => M = I => Q = Q0, rank 20. SOS rank = 20 exactly.
+
+### zaran.py
+z (4, 3) 7
+z (4, 4) 9
+z (5, 5) 12
+z (6, 5) 14
+z (6, 4) 12
+(6,5): z=14, six-column formula z_2(5,6)=4*5=20 =>  H_limited = 6*5 + 14 - 2*20 = 4
+
+### check_witness.py (SCS SDP, L-BFGS low-rank fits, product rank, LP forcing) -- overtaking witness; limited witness run was cut off
+======================================================================
+CONFIG overtaking witness (claimed rank 21) m,n = 6 5
+validation: {'disjoint_supports': True, 'cells_in_range': True, 'pairs_distinct_cells': True, 'n_E1': 13, 'n_E2': 8, 'n_holes': 1, 'R': 21, 'cell_identity_2R=mn+|E1|-H': True, 'C4_count_of_E1_graph': 0}
+Q0 feasibility residual (A vec(Q0)-b): 0.0  rank(Q0)= 21  R= 21
+affine space of symmetric Q: 465 entries, 315 independent constraints -> 150 free parameters
+SDP (SCS): 16 extreme-point solves (min/max of random functionals): max pairwise entrywise difference = 1.092e+00; max |sol - Q0| = 5.790e-01
+eigenvalues of first solution (ascending): [-5e-05, -2e-05, -1e-05, -0.0, 0.0, 1e-05, 1e-05, 2e-05, 5e-05, 0.5526, 0.60892, 0.79067, 0.87797, 0.98079, 0.99106, 1.00059, 1.00257, 1.00929, 1.08233, 1.14624, 1.25039, 1.35188, 1.69107, 1.90807, 1.98218, 2.00294, 2.01148, 2.16637, 2.22496, 2.36185]
+numerical rank (tol 1e-5) of solutions: [22, 23, 24, 25]
+low-rank fit Q=B^T B, B is 21x30, 30 random starts: best residual(0.5||.||^2) = 2.273e-12, median = 1.734e-11, #<1e-12: 0
+low-rank fit Q=B^T B, B is 20x30, 30 random starts: best residual(0.5||.||^2) = 3.003e-11, median = 4.912e-10, #<1e-12: 0
+low-rank fit Q=B^T B, B is 19x30, 30 random starts: best residual(0.5||.||^2) = 7.669e-11, median = 1.526e-09, #<1e-12: 0
+exact: rank over Q of the 231 products w_i w_j = 231
+forcing pass 1: newly forced pairs [(14, 10), (16, 21), (7, 12), (20, 23)]
+forcing pass 2: newly forced pairs [(26, 18), (27, 9)]
+forcing pass 3: newly forced pairs [(6, 4), (17, 3)]
+forcing: 8 of 8 displayed pairs forced to have coinciding Gram vectors
+remaining free dimension of D after equalities: 1
+LP range of every free coordinate after forcing: max |d_k| = 0.0
+======================================================================
+CONFIG limited witness (claimed rank 20) m,n = 6 5
+validation: {'disjoint_supports': True, 'cells_in_range': True, 'pairs_distinct_cells': True, 'n_E1': 14, 'n_E2': 6, 'n_holes': 4, 'R': 20, 'cell_identity_2R=mn+|E1|-H': True, 'C4_count_of_E1_graph': 0}
+Q0 feasibility residual (A vec(Q0)-b): 0.0  rank(Q0)= 20  R= 20
+affine space of symmetric Q: 465 entries, 315 independent constraints -> 150 free parameters
+SDP (SCS): 16 extreme-point solves (min/max of random functionals): max pairwise entrywise difference = 5.166e-02; max |sol - Q0| = 2.880e-02
+eigenvalues of first solution (ascending): [-0.0, -0.0, -0.0, -0.0, -0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.96517, 0.97264, 0.97909, 0.98227, 0.98926, 0.99233, 0.99547, 1.00073, 1.00751, 1.00923, 1.01721, 1.02222, 1.02925, 1.03545, 1.969, 1.98362, 2.00348, 2.00538, 2.01684, 2.02291]
+numerical rank (tol 1e-5) of solutions: [20, 21, 22, 24]
+
+### numeric2.py partial (eps-relaxed SDP, TRF fits; killed for time)
+============================================================
+overtaking witness R = 21
+(A) eps-relaxed SDP diameter:
+  eps=1e-01: 12 solves, max pairwise entry diff 1.395e+00, max |Q-Q0| 8.877e-01
+  eps=1e-02: 12 solves, max pairwise entry diff 1.167e+00, max |Q-Q0| 6.436e-01
+  eps=1e-03: 12 solves, max pairwise entry diff 1.288e+00, max |Q-Q0| 6.470e-01
+  eps=1e-04: 12 solves, max pairwise entry diff 1.266e+00, max |Q-Q0| 6.478e-01
+  eps=1e-05: 12 solves, max pairwise entry diff 1.180e+00, max |Q-Q0| 6.354e-01
+  eps=1e-06: 12 solves, max pairwise entry diff 1.193e+00, max |Q-Q0| 6.439e-01
+(B) trust-region least squares, Q=B^T B:
+============================================================
+overtaking witness R = 21
+(B) trust-region least squares, Q=B^T B:
+  rank 21: 12 starts; best 0.5||res||^2 = 1.292e-12; median 5.818e-12; #<1e-20: 0
+
+### probe.py (eps=1e-6 SDP point, status optimal_inaccurate)
+resid 1.3e-6, pair D: (6,4) -0.0239, (17,3) -0.1093, (26,18) -0.0036, (27,9) -0.0038; max |D| 0.436 at (6,13); i.e. approximate feasibility does not localise Q: no Slater point, error bound degenerate
+
+### controls2.py (4,4)
+(4,4): #C4-free graphs with 8 edges 1512 , with 9 edges 96
+tried 1372 configurations (8 singles,3 pairs,2 holes)
+control (i): E1 = [0, 1, 4, 6, 7, 9, 13, 14] E2 = [(2, 8), (3, 12), (10, 11)] holes [5, 15] {'disjoint_supports': True, 'cells_in_range': True, 'pairs_distinct_cells': True, 'n_E1': 8, 'n_E2': 3, 'n_holes': 2, 'R': 11, 'cell_identity_2R=mn+|E1|-H': True, 'C4_count_of_E1_graph': 0}
+  exact forcing + product independence: CERTIFIED irreducible, SOS rank = R = 11  (matches thm:44 value z_2A(4,4) >= 11)
+  (of 2100 8/3/2 configs on 5 random C4-free bases, 0 are certified irreducible by the exact test)
+control (ii): limited 9/3/1 configs, paper says all reducible
+  E1=[0, 1, 2, 4, 7, 9, 11, 14, 15] E2=[(3, 5), (6, 8), (10, 12)]: exact certificate of irreducibility False (forcing False, products (78, 78)); reweighted-trace SDP found PSD Gram of rank 11 (R=12), constraint residual 8.6e-11
+  E1=[0, 1, 2, 4, 7, 10, 11, 13, 15] E2=[(3, 5), (6, 8), (9, 12)]: exact certificate of irreducibility False (forcing False, products (78, 78)); reweighted-trace SDP found PSD Gram of rank 12 (R=12), constraint residual 1.3e-09
+  E1=[0, 1, 2, 5, 7, 8, 11, 14, 15] E2=[(3, 4), (6, 9), (10, 12)]: exact certificate of irreducibility False (forcing False, products (78, 78)); reweighted-trace SDP found PSD Gram of rank 12 (R=12), constraint residual 8.7e-10
+  E1=[0, 1, 2, 5, 7, 10, 11, 12, 15] E2=[(3, 4), (6, 8), (9, 13)]: exact certificate of irreducibility False (forcing False, products (76, 78)); reweighted-trace SDP found PSD Gram of rank 10 (R=12), constraint residual 5.8e-11

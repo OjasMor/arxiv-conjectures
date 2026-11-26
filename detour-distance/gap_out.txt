@@ -1,0 +1,12 @@
+gap lemma checked 512 cases, failures 0
+C5: DD_D=1  bound max(2,floor(n/3))=2  below  (3|n: False)
+C6: DD_D=2  bound max(2,floor(n/3))=2  equal  (3|n: True)
+C7: DD_D=1  bound max(2,floor(n/3))=2  below  (3|n: False)
+C8: DD_D=2  bound max(2,floor(n/3))=2  equal  (3|n: False)
+C9: DD_D=3  bound max(2,floor(n/3))=3  equal  (3|n: True)
+C10: DD_D=2  bound max(2,floor(n/3))=3  below  (3|n: False)
+C11: DD_D=1  bound max(2,floor(n/3))=3  below  (3|n: False)
+C12: DD_D=4  bound max(2,floor(n/3))=4  equal  (3|n: True)
+C13: DD_D=1  bound max(2,floor(n/3))=4  below  (3|n: False)
+C14: DD_D=2  bound max(2,floor(n/3))=4  below  (3|n: False)
+C15: DD_D=5  bound max(2,floor(n/3))=5  equal  (3|n: True)

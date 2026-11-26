@@ -19,6 +19,9 @@ are marked below and credited in their folders.
 | [arXiv:2611.28073](https://arxiv.org/abs/2611.28073) Božović, Dravec, Kelenc (13 Nov) | Question 1: is ESI Set solvable in polynomial time on interval graphs? | **Yes.** An O(n²) algorithm. | GPT-6.2 Astra, one attempt | Proof read line by line; 84,384 interval graphs against brute force, 0 mismatches: [`esi-interval/`](esi-interval/) |
 | [arXiv:2611.29890](https://arxiv.org/abs/2611.29890) Clifton, Harris, Khaqan (23 Nov) | Question 5.2: can the number of backgammon parking functions with outcome 1 2 ... k n ... (k+1) be written with Motzkin numbers? | **Yes.** An explicit formula for every k. | GPT-6.2 Astra, one attempt | AI-written proof; formula matches exhaustive enumeration in all 55 cases with n ≤ 10: [`parking-motzkin/`](parking-motzkin/) |
 | [arXiv:2611.27882](https://arxiv.org/abs/2611.27882) Chiera, Safer (20 Nov) | Question 10.3: is a function automatic in several expansive bases of a number field eventually periodic, even when no pair of bases satisfies the paper's hypothesis (H)? | **Yes.** A reduction to the paper's two-base theorem. | GPT-6.2 Astra, one attempt | Proof checked step by step, AI referee; rests on the paper's main theorem: [`cobham-several-bases/`](cobham-several-bases/) |
+| [arXiv:2610.22875](https://arxiv.org/abs/2610.22875) Ouyang, Qi (16 Oct) | Conjecture 14 (Threshold): for second-order Zarankiewicz numbers, an overtake occurs if and only if H_limited ≥ 5 | **False.** An explicit 6 × 5 configuration of rank 21, which also contradicts the paper's own no-overtake claim at (6,5). | GPT-6.2 Astra, one attempt | Exact rational certificate from separate code, AI referee: [`zarankiewicz-overtake/`](zarankiewicz-overtake/) |
+| [arXiv:2611.20344](https://arxiv.org/abs/2611.20344) Vasilyev (16 Nov) | Question 7.7 (Collatz-type maps): does every force-divergent set contain a tail of a chain? | **No.** An explicit set. | GPT-6.2 Astra, one attempt | Proof checked by hand, AI referee, our check script: [`updown-forcing/`](updown-forcing/) |
+| [arXiv:2611.26653](https://arxiv.org/abs/2611.26653) Alsinai, Ahmed (17 Nov) | Conjecture 4.1: DD_D(G) ≤ max{2, ⌊n/3⌋} for Hamiltonian graphs | **True** (AI-written proof, not yet read in full by us). | GPT-6.2 Astra, one attempt | Every Hamiltonian graph on 5 to 9 vertices checked; proof checked by a second AI agent and a referee: [`detour-distance/`](detour-distance/) |
 
 ## Found independently, but others were first
 
@@ -40,6 +43,12 @@ are marked below and credited in their folders.
   referee. The Kozlov proof uses a volume formula proved in the paper itself.
 - The interval-graph algorithm has a proof that was read line by line and agrees with brute force on every
   instance tried (up to 12 intervals).
+- The close-skew bound is three lines on top of the Gao–Zhao theorem, which is a preprint; the step to Shukla's
+  conjecture is the paper's own remark, which we did not re-derive.
+- The 6 × 5 configuration contradicts a computed claim in its source paper. Its rank is certified in exact
+  arithmetic, but it has not been confirmed by the authors.
+- The detour-distance proof is the least checked item here: the computation is exhaustive up to 9 vertices, the
+  general proof has only been read by AI.
 - The parking-function formula is proved by an AI-written argument and agrees with exhaustive enumeration up to
   n = 10. Treat the proof as unreviewed.
 
