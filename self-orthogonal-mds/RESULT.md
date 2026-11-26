@@ -158,7 +158,7 @@ classification does not apply.
   criterion; Jin–Xing: full-weight dual words; Coolsaet–Sticker: conic-intersection bound) but no earlier
   statement that the scalable hyperovals are exactly the irregular ones. Close but different: Ezerman–
   Jitman–Kiah–Ling (two different matrices, G Hᵀ = 0); Carlet–Mesnager–Tang–Qi ([q+2,3] LCD codes).
-- This is a search result, not a guarantee. The paper's author has not been asked, and since the paper never
+- This is a search result, not a guarantee. The paper's author was told on 25 Nov 2026 and replied the next day that an update to the preprint is planned. Since the paper never
   mentions arcs or hyperovals the author may not know this literature. A finite-geometry reader (someone who
   works on arcs and hyperovals) is the decisive check.
 

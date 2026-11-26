@@ -28,6 +28,8 @@ are listed separately below and credited in their folders.
 | [arXiv:2611.19137](https://arxiv.org/abs/2611.19137) Milićević, Schwer, Thomas (14 Nov) | Conjectures 4.46 and 4.69: two cover-chain statements for affine Bruhat order hold without the QBG-regularity hypothesis | **False as stated** in type Ã_2, for coweights next to a wall. The proved corollaries are not affected. | GPT-6.2 Astra, one attempt each | Rebuilt with a separate implementation that first reproduces the paper's tables; search statistics: [`affine-bruhat/`](affine-bruhat/) |
 | [arXiv:2611.18194](https://arxiv.org/abs/2611.18194) Mirzavaziri, Yaqubi (13 Nov) | Conjecture 8: the Möbius function from the prime factorization of n to n is 0 or has sign (−1)^(Ω(n)+1) | **False.** For n = 2^7 · 3^6 the value is −57. | GPT-6.2 Astra, one attempt | Re-computed by separate code that reproduces the paper's table: [`mobius-factorizations/`](mobius-factorizations/) |
 
+**Independent confirmations.** After these were published here, other groups published the same results with Lean 4 proofs: [s66lem/conjectures](https://github.com/s66lem/conjectures) for the Fibonacci conjecture (3.5 hours later), the Kozlov volume conjecture (9 hours), the parking-function question (15 hours) and Vasilyev's Question 7.1 (16 hours, with a different cycle), and [the-omega-institute/trureturing](https://github.com/the-omega-institute/trureturing) for the Fibonacci conjecture (9 hours). Times are from commit timestamps.
+
 ## Found independently, but others were first
 
 | Paper | Statement | Outcome | Who was first | Our folder |
