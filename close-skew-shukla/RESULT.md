@@ -46,6 +46,8 @@ We have checked the three-line reduction above. We have not checked the paper's 
 
 ## Verification
 
+- `lean/CloseSkew.lean` (Lean 4 with Mathlib): the reduction is formally verified. The theorem `closeSkew_of_skew` takes the Gao–Zhao
+  bound as a hypothesis and proves the bound of Conjecture 5.9. No `sorry`; axioms: propext, Classical.choice, Quot.sound.
 - `check.py` (our code): exhaustive search over F_2^n for n ≤ 4 finds that the largest k is exactly 2^r in every
   case; and on 20,000 random close-skew systems (n ≤ 7) the doubled list satisfies the skew conditions.
 - `ASTRA_ATTEMPT.md`: the model output. It also contains a self-contained algebraic proof of the binary skew
