@@ -45,6 +45,8 @@ Graphs with cycles on 13 and 14 vertices were not searched, so a smaller non-tre
 
 ## Prior work (checked 2026-11-25)
 
+**Earlier independent result.** github.com/AmirMakir/broken-conjectures published this same 15-vertex tree on 25 Nov 2026 at 13:06 UTC, about eight hours before it was found here, with a Lean 4 proof and a search of all connected graphs of maximum degree 3 on up to 14 vertices (so 15 vertices is the smallest possible for any graph, not only for trees). We found that repository after publishing; credit for the first counterexample goes there. What is here is an independent rediscovery.
+
 arXiv:2611.14718 is at v2 (18 Nov), conjecture still stated. No arXiv paper cites or answers it; a web search
 found only the paper. The authors' repository (github.com/lykoslopezrivera-blip/Stochastic_Dominance_DPP_Graphs)
 was last pushed 17 Nov and has nothing beyond 12 vertices. Nothing in the teen's repo or in GitHub issues.

@@ -1,12 +1,14 @@
 # Three conjectures from this month's arXiv, settled with AI
 
 Three open conjectures from arXiv preprints posted in November 2026, each settled with AI models and then
-re-checked with separate code. None of this has been reviewed by a human mathematician. If you find an error,
+re-checked with separate code. **Correction, 25 Nov:** two of the three (the tree and the Littlestone proof) turned out to have been
+published by other people shortly before us; they are credited in the table and in each folder. As far as we know
+the self-orthogonal MDS result is new. None of this has been reviewed by a human mathematician. If you find an error,
 or know that any of it is already in the literature, please open an issue.
 
 | Paper | Conjecture | Outcome | Found by | Evidence |
 |---|---|---|---|---|
-| [arXiv:2611.14718](https://arxiv.org/abs/2611.14718) Higuita-Díaz, López, Roldán-Correa | On every graph of maximum degree ≤ 3, random sequential adsorption stochastically dominates the uniform jammed ensemble | **False.** A tree on 15 vertices. | GPT-6.2 Astra, one attempt | Exact rational computation and simulation: [`rsa-dominance/`](rsa-dominance/) |
+| [arXiv:2611.14718](https://arxiv.org/abs/2611.14718) Higuita-Díaz, López, Roldán-Correa | On every graph of maximum degree ≤ 3, random sequential adsorption stochastically dominates the uniform jammed ensemble | **False.** A tree on 15 vertices. Not first: [AmirMakir/broken-conjectures](https://github.com/AmirMakir/broken-conjectures) published the same tree about eight hours earlier, with a Lean proof. | GPT-6.2 Astra, one attempt | Exact rational computation and simulation: [`rsa-dominance/`](rsa-dominance/) |
 | [arXiv:2611.30048](https://arxiv.org/abs/2611.30048) Shu Liu | Conjecture 1: no q-ary [q+2,3] self-orthogonal MDS codes for even q ≥ 4 | **False.** An explicit [18,3,16] code over F_16. | Claude | Three independent programs and a Lean 4 proof: [`self-orthogonal-mds/`](self-orthogonal-mds/), [`lean/`](lean/) |
 | [arXiv:2611.28727](https://arxiv.org/abs/2611.28727) Daga, Ramu | Conjecture 31: the randomised Littlestone dimension of intervals equals the greedy closed form | **True** (written proof). Not first: [s66lem/conjectures](https://github.com/s66lem/conjectures) published a Lean-verified proof on 24 Nov, a day earlier. | GPT-6.2 Astra, one attempt | Proof, AI referee report, exact numerical checks: [`littlestone-intervals/`](littlestone-intervals/) |
 
