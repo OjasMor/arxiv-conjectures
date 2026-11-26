@@ -1,16 +1,30 @@
-# Three conjectures from this month's arXiv, settled with AI
+# Conjectures and open questions from recent arXiv preprints, settled with AI
 
-Three open conjectures from arXiv preprints posted in November 2026, each settled with AI models and then
-re-checked with separate code. **Correction, 25 Nov:** two of the three (the tree and the Littlestone proof) turned out to have been
-published by other people shortly before us; they are credited in the table and in each folder. As far as we know
-the self-orthogonal MDS result is new. None of this has been reviewed by a human mathematician. If you find an error,
-or know that any of it is already in the literature, please open an issue.
+Open conjectures and questions stated in arXiv preprints from October and November 2026, each settled with AI
+models and then re-checked with separate code. None of this has been reviewed by a human mathematician. If you
+find an error, or know that any of it is already in the literature, please open an issue.
 
-| Paper | Conjecture | Outcome | Found by | Evidence |
+Several people are working through the same papers this week, so every entry says whether we know of an earlier
+solution. Two of our first three results turned out to have been published by others shortly before us; they
+are marked below and credited in their folders.
+
+## New as far as we know
+
+| Paper | Statement | Outcome | Found by | Evidence |
 |---|---|---|---|---|
-| [arXiv:2611.14718](https://arxiv.org/abs/2611.14718) Higuita-Díaz, López, Roldán-Correa | On every graph of maximum degree ≤ 3, random sequential adsorption stochastically dominates the uniform jammed ensemble | **False.** A tree on 15 vertices. Not first: [AmirMakir/broken-conjectures](https://github.com/AmirMakir/broken-conjectures) published the same tree about eight hours earlier, with a Lean proof. | GPT-6.2 Astra, one attempt | Exact rational computation and simulation: [`rsa-dominance/`](rsa-dominance/) |
-| [arXiv:2611.30048](https://arxiv.org/abs/2611.30048) Shu Liu | Conjecture 1: no q-ary [q+2,3] self-orthogonal MDS codes for even q ≥ 4 | **False.** An explicit [18,3,16] code over F_16. | Claude | Three independent programs and a Lean 4 proof: [`self-orthogonal-mds/`](self-orthogonal-mds/), [`lean/`](lean/) |
-| [arXiv:2611.28727](https://arxiv.org/abs/2611.28727) Daga, Ramu | Conjecture 31: the randomised Littlestone dimension of intervals equals the greedy closed form | **True** (written proof). Not first: [s66lem/conjectures](https://github.com/s66lem/conjectures) published a Lean-verified proof on 24 Nov, a day earlier. | GPT-6.2 Astra, one attempt | Proof, AI referee report, exact numerical checks: [`littlestone-intervals/`](littlestone-intervals/) |
+| [arXiv:2611.30048](https://arxiv.org/abs/2611.30048) Shu Liu (23 Nov) | Conjecture 1: no q-ary [q+2,3] self-orthogonal MDS codes for even q ≥ 4 | **False.** An explicit [18,3,16] code over F_16. | Claude | Three independent programs and a Lean 4 proof: [`self-orthogonal-mds/`](self-orthogonal-mds/), [`lean/`](lean/) |
+| [arXiv:2611.32519](https://arxiv.org/abs/2611.32519) Mandal, Mohan (24 Nov) | Conjecture 1.19: for k ≥ 3, n^k / (1/F_1^k + ... + 1/F_n^k) is an integer only for n = 1, 2 | **True.** Short elementary proof. | GPT-6.2 Astra, one attempt | Proof read line by line, AI referee, exact checks: [`fibonacci-harmonic/`](fibonacci-harmonic/) |
+| [arXiv:2611.26110](https://arxiv.org/abs/2611.26110) Snellman (19 Nov) | Conjecture 21: the normalised volume of Koz(n; 0, d) is weakly increasing in d | **True.** Four lines from the paper's own volume formula. | GPT-6.2 Astra, one attempt | Proof read line by line, AI referee, exact checks: [`kozlov-volume/`](kozlov-volume/) |
+| [arXiv:2611.28073](https://arxiv.org/abs/2611.28073) Božović, Dravec, Kelenc (13 Nov) | Question 1: is ESI Set solvable in polynomial time on interval graphs? | **Yes.** An O(n²) algorithm. | GPT-6.2 Astra, one attempt | Proof read line by line; 84,384 interval graphs against brute force, 0 mismatches: [`esi-interval/`](esi-interval/) |
+| [arXiv:2611.29890](https://arxiv.org/abs/2611.29890) Clifton, Harris, Khaqan (23 Nov) | Question 5.2: can the number of backgammon parking functions with outcome 1 2 ... k n ... (k+1) be written with Motzkin numbers? | **Yes.** An explicit formula for every k. | GPT-6.2 Astra, one attempt | AI-written proof; formula matches exhaustive enumeration in all 55 cases with n ≤ 10: [`parking-motzkin/`](parking-motzkin/) |
+
+## Found independently, but others were first
+
+| Paper | Statement | Outcome | Who was first | Our folder |
+|---|---|---|---|---|
+| [arXiv:2611.14718](https://arxiv.org/abs/2611.14718) Higuita-Díaz, López, Roldán-Correa | On every graph of maximum degree ≤ 3, random sequential adsorption stochastically dominates the uniform jammed ensemble | **False.** A tree on 15 vertices. | [AmirMakir/broken-conjectures](https://github.com/AmirMakir/broken-conjectures), about eight hours before us, with a Lean proof | [`rsa-dominance/`](rsa-dominance/) |
+| [arXiv:2611.28727](https://arxiv.org/abs/2611.28727) Daga, Ramu | Conjecture 31: the randomised Littlestone dimension of intervals equals the greedy closed form | **True.** | [s66lem/conjectures](https://github.com/s66lem/conjectures), a day before us, Lean-verified | [`littlestone-intervals/`](littlestone-intervals/) |
+
 
 ## How sure is each one
 
@@ -20,6 +34,12 @@ or know that any of it is already in the literature, please open an issue.
   checked by an AI referee only. Machine-checked field sizes: 16, 32, 128.
 - The Littlestone proof has been checked by an AI referee, by exact computation on small cases, and by one
   careful read. It starts from a reduction proved in the paper itself.
+- The Fibonacci and Kozlov proofs are short and elementary; each was read line by line and passed a fresh AI
+  referee. The Kozlov proof uses a volume formula proved in the paper itself.
+- The interval-graph algorithm has a proof that was read line by line and agrees with brute force on every
+  instance tried (up to 12 intervals).
+- The parking-function formula is proved by an AI-written argument and agrees with exhaustive enumeration up to
+  n = 10. Treat the proof as unreviewed.
 
 ## Check it yourself
 
@@ -37,6 +57,12 @@ or know that any of it is already in the literature, please open an issue.
     # numerical check of the Littlestone conjecture
     python3 littlestone-intervals/check_independent.py
 
+    # the newer results (plain Python 3)
+    python3 fibonacci-harmonic/check.py
+    python3 kozlov-volume/check.py
+    (cd esi-interval && python3 compare.py)
+    # parking-motzkin: see its RESULT.md and log.txt
+
 ## How these were found
 
 Conjectures were taken from the TeX source of recent arXiv papers. Each got one capped attempt by
@@ -44,11 +70,7 @@ GPT-6.2 Astra with a Python sandbox, or was worked on directly by Claude. Every 
 re-derived with separately written code, sent to a fresh model session for adversarial review, and checked
 against arXiv, GitHub and the authors' own repositories for prior work.
 
-Not everything worked: of five single attempts, two produced the results above, two produced partial results
-that are not claimed here, and one request failed.
-
-## Credit
-
-The conjectures and all of the surrounding theory are the work of the papers' authors. The idea of sweeping
-recent arXiv conjectures with an AI agent follows Cinna Davis's
-[solved-conjectures](https://github.com/1337isnot1337/solved-conjectures).
+Not everything worked, and not everything was new. Many attempts gave nothing, some claimed results were
+rejected on our own check (trivial readings of a mistyped statement, counterexamples that only use degenerate
+small cases), and several correct results had already been published by other people working through the same
+papers. Those are not listed as ours.

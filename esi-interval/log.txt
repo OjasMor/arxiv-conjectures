@@ -1,0 +1,43 @@
+== brute.py ==
+P3 1 paper 1 OK
+P4 1 paper 1 OK
+P5 2 paper 2 OK
+P6 2 paper 2 OK
+P7 2 paper 2 OK
+P8 2 paper 2 OK
+P9 3 paper 3 OK
+P10 3 paper 3 OK
+P11 3 paper 3 OK
+P12 3 paper 3 OK
+P13 4 paper 4 OK
+P14 4 paper 4 OK
+P15 4 paper 4 OK
+P16 4 paper 4 OK
+C3 0 paper 0 OK
+C4 1 paper 1 OK
+C5 1 paper 1 OK
+C6 1 paper 1 OK
+C7 1 paper 1 OK
+C8 2 paper 2 OK
+C9 2 paper 2 OK
+C10 2 paper 2 OK
+C11 2 paper 2 OK
+C12 3 paper 3 OK
+C13 3 paper 3 OK
+C14 3 paper 3 OK
+C15 3 paper 3 OK
+C16 4 paper 4 OK
+K2 0 paper 0 (only complete split graphs have 0)
+K3 0 paper 0 (only complete split graphs have 0)
+K4 0 paper 0 (only complete split graphs have 0)
+K5 0 paper 0 (only complete split graphs have 0)
+K6 0 paper 0 (only complete split graphs have 0)
+K7 0 paper 0 (only complete split graphs have 0)
+K8 0 paper 0 (only complete split graphs have 0)
+ALL MATCH
+== compare.py + reform.py ==
+exhaustive extra: 54240
+conn instances 66767 mismatches 0
+disc instances 17617 mismatches 0
+total 84384 mismatches 0
+general graphs 6000 mismatches 0

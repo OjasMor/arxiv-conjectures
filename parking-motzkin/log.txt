@@ -1,0 +1,120 @@
+== paper example checks ==
+Out_B(1,4,4,3,2,2) = 164325 (paper 164325)
+Out_B(1,3,3,1)     = 4231 (paper 4231)
+== naive vs merged agreement ==
+n=1 identical (1 outcomes, total 1)
+n=2 identical (2 outcomes, total 4)
+n=3 identical (6 outcomes, total 27)
+n=4 identical (24 outcomes, total 256)
+n=5 identical (120 outcomes, total 3125)
+n=6 identical (720 outcomes, total 46656)
+n=7 identical (5040 outcomes, total 823543)
+== paper statements ==
+n=1 all n^n=1 ok; max=1 (C_n=1) min=1 (paper 1 OK) argmin=['1']; C_n outcomes [1, None, None]
+   dec n..1: 1 vs M_n=1 OK
+n=2 all n^n=4 ok; max=2 (C_n=2) min=2 (paper 2 OK) argmin=['12', '21']; C_n outcomes [2, 2, None]
+   dec n..1: 2 vs M_n=2 OK
+   1 n..2: 2 vs M_{n+1}-M_n=2 OK
+n=3 all n^n=27 ok; max=5 (C_n=5) min=4 (paper 4 OK) argmin=['213', '231', '321']; C_n outcomes [5, 5, 5]
+   dec n..1: 4 vs M_n=4 OK
+   1 n..2: 5 vs M_{n+1}-M_n=5 OK
+   12 n..3: 5 vs M_{n+2}-2M_{n+1}+M_n-M_{n-1}=5 OK
+n=4 all n^n=256 ok; max=14 (C_n=14) min=8 (paper 8 OK) argmin=['3214', '3241']; C_n outcomes [14, 14, 14]
+   dec n..1: 9 vs M_n=9 OK
+   1 n..2: 12 vs M_{n+1}-M_n=12 OK
+   12 n..3: 14 vs M_{n+2}-2M_{n+1}+M_n-M_{n-1}=14 OK
+n=5 all n^n=3125 ok; max=42 (C_n=42) min=17 (paper 17 OK) argmin=['43215', '43251', '43521']; C_n outcomes [42, 42, 42]
+   dec n..1: 21 vs M_n=21 OK
+   1 n..2: 30 vs M_{n+1}-M_n=30 OK
+   12 n..3: 37 vs M_{n+2}-2M_{n+1}+M_n-M_{n-1}=37 OK
+n=6 all n^n=46656 ok; max=132 (C_n=132) min=36 (paper 36 OK) argmin=['435216', '435261']; C_n outcomes [132, 132, 132]
+   dec n..1: 51 vs M_n=51 OK
+   1 n..2: 76 vs M_{n+1}-M_n=76 OK
+   12 n..3: 99 vs M_{n+2}-2M_{n+1}+M_n-M_{n-1}=99 OK
+n=7 all n^n=823543 ok; max=429 (C_n=429) min=75 (paper 75 OK) argmin=['5463217', '5463271']; C_n outcomes [429, 429, 429]
+   dec n..1: 127 vs M_n=127 OK
+   1 n..2: 196 vs M_{n+1}-M_n=196 OK
+   12 n..3: 265 vs M_{n+2}-2M_{n+1}+M_n-M_{n-1}=265 OK
+n=8 all n^n=16777216 ok; max=1430 (C_n=1430) min=160 (paper 160 OK) argmin=['65473218', '65473281']; C_n outcomes [1430, 1430, 1430]
+   dec n..1: 323 vs M_n=323 OK
+   1 n..2: 512 vs M_{n+1}-M_n=512 OK
+   12 n..3: 714 vs M_{n+2}-2M_{n+1}+M_n-M_{n-1}=714 OK
+n=9 all n^n=387420489 ok; max=4862 (C_n=4862) min=351 (paper 351 OK) argmin=['654873219', '654873291']; C_n outcomes [4862, 4862, 4862]
+   dec n..1: 835 vs M_n=835 OK
+   1 n..2: 1353 vs M_{n+1}-M_n=1353 OK
+   12 n..3: 1934 vs M_{n+2}-2M_{n+1}+M_n-M_{n-1}=1934 OK
+== target counts A(k,n) ==
+n=1: [1]
+n=2: [2, 2]
+n=3: [4, 5, 5]
+n=4: [9, 12, 14, 14]
+n=5: [21, 30, 37, 42, 42]
+n=6: [51, 76, 99, 118, 132, 132]
+n=7: [127, 196, 265, 331, 387, 429, 429]
+n=8: [323, 512, 714, 922, 1124, 1298, 1430, 1430]
+n=9: [835, 1353, 1934, 2568, 3227, 3872, 4433, 4862, 4862]
+
+===== formula.py output =====
+P_0 coeffs (z^0..): [1]
+P_1 coeffs (z^0..): [0, -1, 1]
+P_2 coeffs (z^0..): [0, -1, 1, -2, 1]
+P_3 coeffs (z^0..): [0, -2, 2, -3, 3, -3, 1]
+P_4 coeffs (z^0..): [0, -5, 5, -7, 7, -7, 6, -4, 1]
+k  n  brute  formula  status
+0  1  1  1  match
+0  2  2  2  match
+1  2  2  2  match
+0  3  4  4  match
+1  3  5  5  match
+2  3  5  5  match
+0  4  9  9  match
+1  4  12  12  match
+2  4  14  14  match
+3  4  14  14  match
+0  5  21  21  match
+1  5  30  30  match
+2  5  37  37  match
+3  5  42  42  match
+4  5  42  42  match
+0  6  51  51  match
+1  6  76  76  match
+2  6  99  99  match
+3  6  118  118  match
+4  6  132  132  match
+5  6  132  132  match
+0  7  127  127  match
+1  7  196  196  match
+2  7  265  265  match
+3  7  331  331  match
+4  7  387  387  match
+5  7  429  429  match
+6  7  429  429  match
+0  8  323  323  match
+1  8  512  512  match
+2  8  714  714  match
+3  8  922  922  match
+4  8  1124  1124  match
+5  8  1298  1298  match
+6  8  1430  1430  match
+7  8  1430  1430  match
+0  9  835  835  match
+1  9  1353  1353  match
+2  9  1934  1934  match
+3  9  2568  2568  match
+4  9  3227  3227  match
+5  9  3872  3872  match
+6  9  4433  4433  match
+7  9  4862  4862  match
+8  9  4862  4862  match
+cases 45 mismatches 0
+n=10 (brute values from separate run, merged-state enumeration of all 10^10 lists):
+0 10 2188 2188 match
+1 10 3610 3610 match
+2 10 5268 5268 match
+3 10 7156 7156 match
+4 10 9225 9225 match
+5 10 11384 11384 match
+6 10 13507 13507 match
+7 10 15366 15366 match
+8 10 16796 16796 match
+9 10 16796 16796 match
