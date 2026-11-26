@@ -1,0 +1,3 @@
+sig (5, 5) Omega 10 elements 339 mu(up-rec) -18 mu(down-rec) -18 predicted sign (-1)^(Omega+1)= -1 0.0s
+sig (6, 5) Omega 11 elements 589 mu(up-rec) 23 mu(down-rec) 23 predicted sign (-1)^(Omega+1)= 1 0.0s
+sig (7, 6) Omega 13 elements 1752 mu(up-rec) -57 mu(down-rec) -57 predicted sign (-1)^(Omega+1)= 1 0.1s

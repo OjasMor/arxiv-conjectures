@@ -1,0 +1,182 @@
+##### check_paper.py
+PASS 0. geometric length == Iwahori-Matsumoto formula (paper eq. (length)), 3000 elts
+PASS 0b. l(s0)=l(s1)=l(s2)=1
+PASS 1. Table A2_wt: all 36 weights wt(u->u')
+PASS 2. Table A2_QBGEdgeReflection: same edge set (15 edges) and same reflections (my edges: 15)
+PASS 3. Example pr(s21->s1): path (s21,s2,id,s1) is shortest and pr = s_{th,1}s_{a2,1}s_{a1} (#shortest paths=4)
+PASS 4. Lemma lowerCornerWeight and Lemma x'_u = pr x' = t^{lam'_u} u (1800 cases)
+PASS 4b. Lemma upperCornerWeight: pr(u->u')^{-1} lam = u'(lam_+ + wt)
+PASS 5. dominant lam' lower QBG-regular <=> <a_i,lam'> >= 3 (i=1,2) (range 0..7)
+PASS 6. Example lam'=2a1+2a2: oppC=id, not lower QBG-regular, six distinct lower corners
+PASS 7. Example lam=-a1-a2: gateC=w0, not upper QBG-regular, six distinct upper corners
+PASS 8a. dominant regular lam: gate = t^lam w0
+PASS 8b. nonzero dominant lam in H_{a1}: gate = t^lam s21; in H_{a2}: t^lam s12 (got s21,s12)
+PASS 8c. gate(0) = base alcove (identity)
+PASS 9. Prop BruhatImpliesIwahori on random elements (8838 pairs)
+PASS 10. Thm lowerIwahoriPolytope: [0,lam']_I == conv(lower corners) cap lattice (7225 pts)
+PASS 11. Cor LowerCovers (lower-QBG-regular): Bruhat covers & Iwahori covers (2363 paths) [bruhat fails 0, iwahori fails 0]
+PASS 12. Cor UpperCovers (upper-QBG-regular): Bruhat covers & Iwahori covers (2771 paths) [bruhat fails 0, iwahori fails 0]
+PASS 13. Def/Lemma formula: oppC=max-length u with lam in C_u, gateC=min; opp gate = t^lam oppC(lam)
+
+ALL PAPER CHECKS PASS
+
+##### counterexamples.py
+=== Attempt 1: conj:CornerCovers, lam' = (2,-3,1) ===
+lam'= (2,-3,1)  <a1,.>,<a2,.>,<theta,.> = 5 -4 1 regular: True
+lam'_+ = (2,1,-3)  u'=oppC = s2  opp-gate elt = t^lam' u' length 11
+u=s1 path=['s1', 'id', 's2']
+   x'_u: [('(2,1,-3)', 's1'), ('(2,1,-3)', 'id'), ('(2,-3,1)', 's2')]
+   lengths: [9, 10, 11] cover steps: [True, True]
+   step 1: lam'_u (2,1,-3) <=_I (2,-3,1): True; Iwahori cover: True; strictly between: []
+u=s1 path=['s1', 's21', 's2']
+   x'_u: [('(2,1,-3)', 's1'), ('(2,-3,1)', 's21'), ('(2,-3,1)', 's2')]
+   lengths: [9, 10, 11] cover steps: [True, True]
+   step 0: lam'_u (2,1,-3) <=_I (2,-3,1): True; Iwahori cover: True; strictly between: []
+u=s12 path=['s12', 'w0', 'id', 's2']
+   x'_u: [('(-2,1,1)', 's12'), ('(-2,1,1)', 'w0'), ('(2,1,-3)', 'id'), ('(2,-3,1)', 's2')]
+   lengths: [8, 9, 10, 11] cover steps: [True, True, True]
+   step 1: lam'_u (-2,1,1) <=_I (2,1,-3): True; Iwahori cover: True; strictly between: []
+   step 2: lam'_u (2,1,-3) <=_I (2,-3,1): True; Iwahori cover: True; strictly between: []
+u=s12 path=['s12', 'w0', 's21', 's2']
+   x'_u: [('(-2,1,1)', 's12'), ('(-2,1,1)', 'w0'), ('(2,-3,1)', 's21'), ('(2,-3,1)', 's2')]
+   lengths: [8, 9, 10, 11] cover steps: [True, True, True]
+   step 1: lam'_u (-2,1,1) <=_I (2,-3,1): True; Iwahori cover: False; strictly between: ['(2,1,-3)']
+u=s12 path=['s12', 's1', 'id', 's2']
+   x'_u: [('(-2,1,1)', 's12'), ('(2,1,-3)', 's1'), ('(2,1,-3)', 'id'), ('(2,-3,1)', 's2')]
+   lengths: [8, 9, 10, 11] cover steps: [True, True, True]
+   step 0: lam'_u (-2,1,1) <=_I (2,1,-3): True; Iwahori cover: True; strictly between: []
+   step 2: lam'_u (2,1,-3) <=_I (2,-3,1): True; Iwahori cover: True; strictly between: []
+u=s12 path=['s12', 's1', 's21', 's2']
+   x'_u: [('(-2,1,1)', 's12'), ('(2,1,-3)', 's1'), ('(2,-3,1)', 's21'), ('(2,-3,1)', 's2')]
+   lengths: [8, 9, 10, 11] cover steps: [True, True, True]
+   step 0: lam'_u (-2,1,1) <=_I (2,1,-3): True; Iwahori cover: True; strictly between: []
+   step 1: lam'_u (2,1,-3) <=_I (2,-3,1): True; Iwahori cover: True; strictly between: []
+u=w0 path=['w0', 'id', 's2']
+   x'_u: [('(-2,1,1)', 'w0'), ('(2,1,-3)', 'id'), ('(2,-3,1)', 's2')]
+   lengths: [9, 10, 11] cover steps: [True, True]
+   step 0: lam'_u (-2,1,1) <=_I (2,1,-3): True; Iwahori cover: True; strictly between: []
+   step 1: lam'_u (2,1,-3) <=_I (2,-3,1): True; Iwahori cover: True; strictly between: []
+u=w0 path=['w0', 's21', 's2']
+   x'_u: [('(-2,1,1)', 'w0'), ('(2,-3,1)', 's21'), ('(2,-3,1)', 's2')]
+   lengths: [9, 10, 11] cover steps: [True, True]
+   step 0: lam'_u (-2,1,1) <=_I (2,-3,1): True; Iwahori cover: False; strictly between: ['(2,1,-3)']
+
+--- the specific intermediate b=(2,1,-3), witnessed by Bruhat chain z0<z1<z2 (attempt 1) ---
+lengths [6, 7, 8] translation parts ['(-2,1,1)', '(2,1,-3)', '(2,-3,1)'] dirs ['id', 'w0', 's12']
+a<=_I b: True  b<=_I c: True  a<=_I c: True distinct: True
+
+=== Attempt 2: conj:UpperCovers, lam = (0,1,-1) ===
+lam= (0,1,-1) pairings -1 2 1 regular: True  lam_+ = (1,0,-1)  u=gateC = s1
+gate element x = t^lam w, w = s21  length 2  coset lengths [2, 3, 3, 4, 4, 5]
+t^lam u w0 == gate elt: True
+path ['s1', 'id'] weights (1,-1,0) pr = [('(1,-1,0)', 's1')]
+  x^{u_j}: [('(0,1,-1)', 's21'), ('(2,-1,-1)', 'w0')] lengths [2, 5]
+  step 0: lam^u (0,1,-1) <=_I (2,-1,-1): True; Iwahori cover False; between ['(0,-1,1)']
+  r = pr is an affine reflection s_{a1,1}?: True
+  left-mult chain x, s2x, s0s2x, s2s0s2x lengths: [2, 3, 4, 5]  last == r x: True
+
+##### search.py 6
+box: all lam in Q^v (coweight lattice, 3 types) with max|coord|<=6: 343 points; coroot-lattice ones: 127
+
+======================================================================
+conj:CornerCovers
+======================================================================
+class                          #lam #lam w/ fail  instances  fail(1)  fail(2)  fail any
+QBGreg/regular                  184            0       1588        0        0         0
+notQBGreg/nonregular             55           34        496        0       68        68
+notQBGreg/regular               104           16        860        0       32        32
+TOTAL                           343           50       2944        0      100       100
+  regular lam (all <alpha,lam> != 0): instances 2448, fail(1) 0, fail(2) 32, fail either 32, satisfy conjecture 2416
+  non-regular lam: instances 496, fail(1) 0, fail(2) 68, fail either 68, satisfy conjecture 428
+  QBG-regular lam (authors' hypothesis for the Corollary): instances 1588, fail(1) 0, fail(2) 0, fail either 0, satisfy conjecture 1588
+  NOT QBG-regular lam: instances 1356, fail(1) 0, fail(2) 100, fail either 100, satisfy conjecture 1256
+  sample failures of part (1) [lam, path, lengths along chain]:
+  sample failures of part (2) [lam, path, translation parts along chain]:
+     notQBGreg/nonregular (-6,3,3) ['id', 's1', 's12', 'w0'] ['(3,3,-6)', '(3,3,-6)', '(-6,3,3)', '(-6,3,3)']
+     notQBGreg/nonregular (-6,3,3) ['s1', 's12', 'w0'] ['(3,3,-6)', '(-6,3,3)', '(-6,3,3)']
+     notQBGreg/regular (-2,5,-3) ['s21', 'w0', 's12', 's1'] ['(-2,-2,4)', '(-2,-2,4)', '(-2,5,-3)', '(-2,5,-3)']
+     notQBGreg/regular (-2,5,-3) ['w0', 's12', 's1'] ['(-2,-2,4)', '(-2,5,-3)', '(-2,5,-3)']
+
+======================================================================
+conj:UpperCovers
+======================================================================
+class                          #lam #lam w/ fail  instances  fail(1)  fail(2)  fail any
+QBGreg/regular                  241            0       2071        0        0         0
+notQBGreg/nonregular             55           54        496       36      108       108
+notQBGreg/regular                47           16        377       32       32        32
+TOTAL                           343           70       2944       68      140       140
+  regular lam (all <alpha,lam> != 0): instances 2448, fail(1) 32, fail(2) 32, fail either 32, satisfy conjecture 2416
+  non-regular lam: instances 496, fail(1) 36, fail(2) 108, fail either 108, satisfy conjecture 388
+  QBG-regular lam (authors' hypothesis for the Corollary): instances 2071, fail(1) 0, fail(2) 0, fail either 0, satisfy conjecture 2071
+  NOT QBG-regular lam: instances 873, fail(1) 68, fail(2) 140, fail either 140, satisfy conjecture 733
+  sample failures of part (1) [lam, path, lengths along chain]:
+     notQBGreg/nonregular (-3,6,-3) ['s1', 'id'] [17, 20]
+     notQBGreg/nonregular (-3,6,-3) ['s1', 'id', 's2'] [17, 20, 19]
+     notQBGreg/regular (-2,5,-3) ['s1', 'id'] [14, 17]
+     notQBGreg/regular (-2,5,-3) ['s1', 'id', 's2'] [14, 17, 16]
+  sample failures of part (2) [lam, path, translation parts along chain]:
+     notQBGreg/nonregular (-6,3,3) ['s12', 'w0', 's21', 's2'] ['(-6,3,3)', '(-6,3,3)', '(4,-7,3)', '(4,-7,3)']
+     notQBGreg/nonregular (-6,3,3) ['s12', 'w0', 's21'] ['(-6,3,3)', '(-6,3,3)', '(4,-7,3)']
+     notQBGreg/regular (-2,5,-3) ['s1', 'id'] ['(-2,5,-3)', '(6,-3,-3)']
+     notQBGreg/regular (-2,5,-3) ['s1', 'id', 's2'] ['(-2,5,-3)', '(6,-3,-3)', '(6,-3,-3)']
+
+##### extent.py
+box: all lam in Q^v (coweight lattice, 3 types) with max|coord|<=12: 1333 points; coroot-lattice ones: 469
+conj 1: box 12, 1333 lam, 11386 instances; failures inside QBG-regular: 0
+   failing (chamber of oppC/gateC, (<a1,lam+>,<a2,lam+>)) -> {(fail1,fail2)}:
+   max over failing lam of min(<a1,lam+>,<a2,lam+>) = 1
+   failing lam are all within distance 2 of a wall of the dominant chamber (after conjugation): True
+   max over failing lam of max(m1,m2) = 18  (so failures occur at arbitrarily large lam along a wall, not only near 0)
+      ('w0', (0, 1)) [(False, True)]
+      ('s1', (0, 2)) [(False, True)]
+      ('w0', (0, 2)) [(False, True)]
+      ('s1', (0, 3)) [(False, True)]
+      ('w0', (0, 3)) [(False, True)]
+      ('s1', (0, 4)) [(False, True)]
+      ('w0', (0, 4)) [(False, True)]
+      ('s1', (0, 5)) [(False, True)]
+      ('w0', (0, 5)) [(False, True)]
+      ('s1', (0, 6)) [(False, True)]
+      ('w0', (0, 6)) [(False, True)]
+      ('s1', (0, 7)) [(False, True)]
+      ('w0', (0, 7)) [(False, True)]
+      ('s1', (0, 8)) [(False, True)]
+      ('w0', (0, 8)) [(False, True)]
+      ('s1', (0, 9)) [(False, True)]
+      ('w0', (0, 9)) [(False, True)]
+      ('s1', (0, 10)) [(False, True)]
+      ('w0', (0, 10)) [(False, True)]
+      ('s1', (0, 11)) [(False, True)]
+      ('w0', (0, 11)) [(False, True)]
+      ('s1', (0, 12)) [(False, True)]
+      ('w0', (0, 12)) [(False, True)]
+      ('s1', (0, 13)) [(False, True)]
+conj 2: box 12, 1333 lam, 11386 instances; failures inside QBG-regular: 0
+   failing (chamber of oppC/gateC, (<a1,lam+>,<a2,lam+>)) -> {(fail1,fail2)}:
+   max over failing lam of min(<a1,lam+>,<a2,lam+>) = 1
+   failing lam are all within distance 2 of a wall of the dominant chamber (after conjugation): True
+   max over failing lam of max(m1,m2) = 18  (so failures occur at arbitrarily large lam along a wall, not only near 0)
+      ('id', (0, 1)) [(False, True)]
+      ('s12', (0, 1)) [(False, True)]
+      ('s2', (0, 1)) [(True, True)]
+      ('id', (0, 2)) [(False, True)]
+      ('s12', (0, 2)) [(False, True)]
+      ('s2', (0, 2)) [(True, True)]
+      ('id', (0, 3)) [(False, True)]
+      ('s12', (0, 3)) [(False, True)]
+      ('s2', (0, 3)) [(True, True)]
+      ('id', (0, 4)) [(False, True)]
+      ('s12', (0, 4)) [(False, True)]
+      ('s2', (0, 4)) [(True, True)]
+      ('id', (0, 5)) [(False, True)]
+      ('s12', (0, 5)) [(False, True)]
+      ('s2', (0, 5)) [(True, True)]
+      ('id', (0, 6)) [(False, True)]
+      ('s12', (0, 6)) [(False, True)]
+      ('s2', (0, 6)) [(True, True)]
+      ('id', (0, 7)) [(False, True)]
+      ('s12', (0, 7)) [(False, True)]
+      ('s2', (0, 7)) [(True, True)]
+      ('id', (0, 8)) [(False, True)]
+      ('s12', (0, 8)) [(False, True)]
+      ('s2', (0, 8)) [(True, True)]
