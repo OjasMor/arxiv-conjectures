@@ -48,7 +48,8 @@ Graphs with cycles on 13 and 14 vertices were not searched, so a smaller non-tre
 arXiv:2611.14718 is at v2 (18 Nov), conjecture still stated. No arXiv paper cites or answers it; a web search
 found only the paper. The authors' repository (github.com/lykoslopezrivera-blip/Stochastic_Dominance_DPP_Graphs)
 was last pushed 17 Nov and has nothing beyond 12 vertices. Nothing in the teen's repo or in GitHub issues.
-No X search was run. The authors have not been asked.
+No X search was run. The authors were told on 25 Nov 2026 through an issue on their repository
+(https://github.com/lykoslopezrivera-blip/Stochastic_Dominance_DPP_Graphs/issues/1); no reply yet.
 
 ## Not done
 
