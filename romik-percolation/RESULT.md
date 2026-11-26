@@ -42,5 +42,7 @@ probabilistic meaning at N = k is needed.
 
 ## Prior work (checked 2026-11-25)
 
+**Earlier independent result.** github.com/the-omega-institute/trureturing recorded a proof of this conjecture, with a Lean formalization, on 26 Nov 2026 at 00:55 UTC, about 40 minutes before this folder was published. Credit for the first proof goes there. What is here is an independent proof found the same afternoon.
+
 Paper is 6 days old and proves only k = 1. GitHub repository search (arXiv id, "Romik rationality percolation"),
 the collection repositories we know of, and X by arXiv id: nothing found. The authors have not been asked.

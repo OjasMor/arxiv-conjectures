@@ -35,5 +35,7 @@ T_S diverges. ∎
 
 ## Prior work (checked 2026-11-25)
 
+**Earlier independent result.** github.com/the-omega-institute/trureturing recorded and formalized a refutation of Question 7.7 on 20 Nov 2026, five days before this one. Credit for the first answer goes there. What is here is an independent rediscovery.
+
 Paper is 9 days old. GitHub repository search, the collection repositories we know of, and X by arXiv id:
 nothing found. This is a search, not a guarantee. The author has not been asked.
