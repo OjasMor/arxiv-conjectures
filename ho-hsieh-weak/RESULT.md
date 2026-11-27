@@ -2,7 +2,7 @@
 
 Status as of 2026-11-26: a written constructive proof, found by GPT-6.2 Astra (two separate runs; both give a
 proof by the same route, written in different variables). The construction was turned into code and checked end
-to end on the full 2^L state vector for L = 2, 4, ..., 14, and mode by mode for L = 20 and 40. **No physicist or mathematician has checked the written proof.**
+to end on the full 2^L state vector for L = 2, 4, ..., 14, and mode by mode for L = 20, 40, 80 and 100. **No physicist or mathematician has checked the written proof.**
 
 ## The conjecture
 
@@ -48,8 +48,9 @@ argument. The proof is in `ASTRA_ATTEMPT_1.md` (a second, independent run is `AS
   peeling). No failing step. One printed FAIL is an absolute-tolerance artifact (relative remainder 1.8e-116).
 - The algebra of the layer-peeling step was re-derived by hand by the checking agent. No gap found.
 - `large_L_modes.py` (written separately by Claude): applies the L/2 layers to each pair mode and compares with
-  the mode's ground spinor, with no 2^L vector. L = 20 (g = 1, −0.999) and L = 40 (g = 1.001, −1, 0.3), at
-  300 digits: worst mode infidelity below 2e-300.
+  the mode's ground spinor, with no 2^L vector. L = 20 (g = 1, −0.999) and L = 40 (g = 1.001, −1, 0.3) at
+  300 digits: worst mode infidelity below 2e-300. L = 80 (g = 1, −0.37) at 500 digits: below 6e-500.
+  L = 100 (g = 1.0001) at 600 digits: 8.6e-600.
 - Claude read and re-derived by hand, in the second write-up, the layer-removal lemma (its Section 2) and the
   bounded interpolant (its Section 3: the integral formula for the Hermite error, convexity of E, concavity of
   E + 2√t/C, the bounds inside and at the ends of the interval). No gap found. The spectral-factorisation step
