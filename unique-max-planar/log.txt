@@ -1,0 +1,70 @@
+W n,m 781 1926 connected True planar True simple/no loops True min deg 2
+O n,m 21 39 planar True
+O pUMc k=4 False 0.00s 
+O pUMc k=5 True 0.00s True
+G7 n,m 151 426 planar True
+G7 pUMc k=6 UNSAT 0.03s 
+G7 pUMc k=7 SAT 0.01s True
+G7 pUMo k=6 UNSAT 0.03s 
+G7 pUMo k=7 SAT 0.01s True
+G7 iUMo k=4 SAT 0.00s True
+G7 iUMo k=5 SAT 0.00s True
+G7 iUMo k=6 SAT 0.00s True
+G7 iUMc k=3 SAT 0.00s True
+G7 iUMc k=4 SAT 0.00s True
+marked K4 iUMo k=2 False
+marked K4 iUMo k=3 False
+marked K4 iUMo k=4 True
+W iUMo k=5 UNSAT 0.10s 
+W iUMo k=6 SAT 0.06s verified
+W iUMc k=3 UNSAT 0.04s 
+W iUMc k=4 SAT 0.05s verified
+W pUMc k=6 UNSAT 0.13s 
+W pUMc k=7 SAT 0.07s verified
+W pUMo k=6 UNSAT 0.13s 
+W pUMo k=7 SAT 0.06s verified
+== parameter sweep (iUMo, k=5) ==
+A-blocks (2, 2, 2, 2) O-blocks (0, 0, 0, 0) hubs 3 plen 6 n=634 UNSAT 0.07s
+A-blocks (2, 2, 2, 2) O-blocks (0, 0, 0, 0) hubs 3 plen 5 n=538 SAT 0.02s
+A-blocks (2, 2, 2, 2) O-blocks (0, 0, 0, 0) hubs 3 plen 4 n=442 SAT 0.02s
+A-blocks (2, 2, 2, 2) O-blocks (0, 0, 0, 0) hubs 2 plen 6 n=418 SAT 0.01s
+A-blocks (2, 2, 2, 2) O-blocks (0, 0, 0, 0) hubs 1 plen 6 n=210 SAT 0.01s
+A-blocks (2, 2, 2, 1) O-blocks (0, 0, 0, 0) hubs 3 plen 6 n=556 UNSAT 0.05s
+A-blocks (2, 2, 2, 2) O-blocks (0, 0, 0, 0) hubs 3 plen 3 n=346 SAT 0.01s
+A-only graph n,m 634 1506 UNSAT True
+run 0 minimal n=322 m=678
+run 1 minimal n=322 m=678
+n 781 m 1926 colours used [1, 2, 3, 4, 5, 6] violations 0
+W781.json n=781 k=5 cadical153 UNSAT 0.12s
+W781.json n=781 k=5 glucose4 UNSAT 0.06s
+W781.json n=781 k=5 minisat22 UNSAT 0.06s
+W781.json n=781 k=5 maplechrono UNSAT 0.06s
+W781.json n=781 k=6 cadical153 SAT 0.08s
+W781.json n=781 k=6 glucose4 SAT 0.06s
+W781.json n=781 k=6 minisat22 SAT 0.05s
+W781.json n=781 k=6 maplechrono SAT 0.05s
+n,m 322 762 connected True planar True mindeg 2
+glucose4 k=5: UNSAT proof lines 3504
+k=6 True True
+smallest_unsat5.json n=322 k=5 cadical153 UNSAT 0.03s
+smallest_unsat5.json n=322 k=5 glucose4 UNSAT 0.02s
+smallest_unsat5.json n=322 k=5 minisat22 UNSAT 0.02s
+smallest_unsat5.json n=322 k=5 maplechrono UNSAT 0.02s
+smallest_unsat5.json n=322 k=6 cadical153 SAT 0.01s
+smallest_unsat5.json n=322 k=6 glucose4 SAT 0.01s
+smallest_unsat5.json n=322 k=6 minisat22 SAT 0.01s
+smallest_unsat5.json n=322 k=6 maplechrono SAT 0.01s
+== block-count sweep (A blocks only, no O), iUMo k=5 ==
+A-blocks (2, 2, 2, 1) n=556 m=1320 UNSAT 0.06s
+A-blocks (2, 2, 2, 0) n=478 m=1134 SAT 0.02s
+A-blocks (2, 2, 1, 1) n=478 m=1134 UNSAT 0.05s
+A-blocks (2, 1, 1, 1) n=400 m=948 UNSAT 0.04s
+A-blocks (1, 1, 1, 1) n=322 m=762 UNSAT 0.03s
+A-blocks (2, 2, 1, 0) n=400 m=948 SAT 0.02s
+start n=556
+vertex pass done n=322 m=762
+vertex pass done n=322 m=762
+edge pass done n=322 m=678
+edge pass done n=322 m=678
+BEST n=322 m=678 connected=True planar=True mindeg=2
+degree seq [59, 57, 57, 55, 14, 13, 13, 12, 12, 12, 12, 12]

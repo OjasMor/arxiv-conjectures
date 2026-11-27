@@ -1,0 +1,64 @@
+### check.py table (worst infidelity per L, g grid)
+g grid: [-3, -1.2, -1, -0.5, -0.01, 0.01, 0.3, 1, 1.5, 4]
+  L        -3      -1.2        -1      -0.5     -0.01      0.01       0.3         1       1.5         4   worst
+  2   4.4e-16   0.0e+00   4.4e-16   4.4e-16   4.4e-16   2.2e-16   4.4e-16   4.4e-16   6.7e-16   6.7e-16   6.7e-16
+  4   4.4e-16   0.0e+00   0.0e+00   1.3e-15  -4.4e-16  -8.9e-16   6.7e-16  -4.4e-16   6.7e-16   4.4e-16   1.3e-15
+  6  -4.4e-16   0.0e+00   6.7e-16   1.1e-15   4.4e-16   2.2e-16   6.7e-16   1.3e-15   1.6e-15   0.0e+00   1.6e-15
+  8   2.0e-15   0.0e+00   1.3e-15   1.6e-15   0.0e+00  -4.4e-16   0.0e+00   2.2e-15   1.3e-15   1.1e-15   2.2e-15
+ 10  -8.9e-16   1.1e-15   2.0e-15  -4.4e-16   2.2e-15   8.9e-16  -4.9e-15   1.3e-15   1.8e-15   3.3e-15   3.3e-15
+ 12  -3.6e-15  -8.4e-15  -3.6e-15   6.7e-16   5.8e-15   3.1e-15   1.6e-15  -1.3e-15   6.2e-15  -1.3e-15   6.2e-15
+ 14  -6.2e-15   3.3e-15   1.4e-14   1.6e-15   1.1e-15   3.8e-15   8.7e-15  -8.4e-15  -1.3e-15  -1.2e-14   1.4e-14
+
+real	0m17.257s
+user	0m16.987s
+sys	0m0.161s
+
+### verify_steps.py
+== Step 1: free-fermion reduction ==
+PASS nodes x_j=-cos((2j-1)pi/L) are roots of T_n  max|T_n(x_j)|=3.78e-120
+PASS exact even-sector E0 == -2 sum_j r(x_j) (incl. g<0)  max err=3.41e-13
+PASS global ground state lies in even sector (L=8, g=0.5 and -0.5 sample)
+== Step 2: Hermite error identity for 1/(u+lambda) ==
+PASS f - Hermite(f) == T_n(x)^2 / ((u+lambda) T_n(xi_u)^2)  max rel err=5.46e-98
+== Step 3: D, E concavity and sign bounds (2) ==
+PASS bounds -r<=h<=r on [-1,1]  violations=0
+PASS exterior bounds h>=r (a>0), h<=-r (a<0) on J\[-1,1]  violations=0
+PASS D'' <= 0 and E'' <= 0 on grids in J  violations=0 of 12173 pts x2
+PASS integral representation (3) of D  |diff|=1.94e-121
+== Step 4: P(t) polynomial and P>=0 on R ==
+FAIL t - h(x(t)) divisible by t - a(x(t)) (remainder ~0)  max rem=2.13e-58
+PASS P(t) >= 0 on dense real grids  violations=0
+   (L,g) where cofactor Q has (numerically) real roots: none
+== Step 5: existence/degree of A,B and identity (1) ==
+PASS deg A <= n, deg B <= n-1
+PASS identity (1) as polynomial identity (checked at 20 real x)  max resid=3.9e-54
+PASS A=(r+a)B at nodes (target spinor)  max resid=1.78e-90
+== Step 6: layer extraction (QSP-type lemma) ==
+PASS random n-layer circuits: polynomial pair -> extracted n layers reproduces the spinor (to phase)  max 1-overlap=4.59e-41
+PASS extracted n layers (no extra rotations) prepare target pair state at every node, mp 120 digits  max 1-overlap=4.84e-121; identity-padded layers=0
+
+FAILED: ['t - h(x(t)) divisible by t - a(x(t)) (remainder ~0)']
+
+real	1m40.627s
+user	1m39.354s
+sys	0m0.955s
+
+### extra_tests.py
+max relative remainder of t-h(x(t)) mod (t-a(x(t))): 1.84e-116
+random g (25 per L, |g| in [1e-3,50], both signs), worst infidelity: 1.24e-14 (12, -3.732224592130312)
+g->0 limit, L=2: infidelity to even cat state at g=1e-6,-1e-6,1e-9: ['2.5e-13', '2.5e-13', '2.2e-16']
+g->0 limit, L=4: infidelity to even cat state at g=1e-6,-1e-6,1e-9: ['2.5e-13', '2.5e-13', '2.2e-16']
+g->0 limit, L=6: infidelity to even cat state at g=1e-6,-1e-6,1e-9: ['3.8e-13', '3.8e-13', '6.7e-16']
+g->0 limit, L=8: infidelity to even cat state at g=1e-6,-1e-6,1e-9: ['5.0e-13', '5.0e-13', '-8.9e-16']
+g->0 limit, L=10: infidelity to even cat state at g=1e-6,-1e-6,1e-9: ['6.3e-13', '6.2e-13', '1.1e-15']
+g->0 limit, L=12: infidelity to even cat state at g=1e-6,-1e-6,1e-9: ['7.5e-13', '7.5e-13', '2.7e-07']
+direct optimisation of L/2=1 layers, L=2: best infidelity g=0: 4.4e-16  g=-1.2: 0.0e+00  g=1: 2.2e-16
+direct optimisation of L/2=2 layers, L=4: best infidelity g=0: 4.4e-16  g=-1.2: 0.0e+00  g=1: 6.7e-16
+direct optimisation of L/2=3 layers, L=6: best infidelity g=0: -4.4e-16  g=-1.2: 0.0e+00  g=1: 4.4e-16
+direct optimisation of L/2=4 layers, L=8: best infidelity g=0: 1.3e-15  g=-1.2: 0.0e+00  g=1: 2.2e-16
+
+real	0m48.605s
+user	0m47.698s
+sys	0m0.638s
+
+NOTE: single FAIL in verify_steps (remainder 2e-58) is an absolute-tolerance artifact; relative remainder is 1.8e-116 (extra_tests). Tiny-g (<=1e-9, L=12) needs dps>=400 in angles.py (verified: 1e-9 and 1e-12 give ~1e-15 at dps=400).
